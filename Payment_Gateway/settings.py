@@ -11,6 +11,11 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()  # This loads your .env file
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -119,9 +124,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # PayPal Configuration
-PAYPAL_MODE = 'sandbox'  # Use 'live' for production
-PAYPAL_CLIENT_ID = 'AUdrPoaq88_Q4hL8jSecR6Zpqjb6QGda4P71HajQ47uWEmU7FRUmVozdu1pIGBaK1CegFcxNPKDTPieu'
-PAYPAL_CLIENT_SECRET = 'EEpcESiuAKCZo6tYMVsQ8FpA5oGl-YP5fwNG1ltsv-NdT7PmcM8AaW3Y7A_6LWOX2ciWvibVIKuacYpN'
+PAYPAL_MODE = os.getenv("PAYPAL_MODE", "sandbox")
+PAYPAL_CLIENT_ID = os.getenv("PAYPAL_CLIENT_ID")
+PAYPAL_SECRET = os.getenv("PAYPAL_CLIENT_SECRET")
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
