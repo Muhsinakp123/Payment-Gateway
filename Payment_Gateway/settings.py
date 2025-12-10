@@ -122,3 +122,10 @@ STATIC_URL = 'static/'
 PAYPAL_MODE = 'sandbox'  # Use 'live' for production
 PAYPAL_CLIENT_ID = 'AUdrPoaq88_Q4hL8jSecR6Zpqjb6QGda4P71HajQ47uWEmU7FRUmVozdu1pIGBaK1CegFcxNPKDTPieu'
 PAYPAL_CLIENT_SECRET = 'EEpcESiuAKCZo6tYMVsQ8FpA5oGl-YP5fwNG1ltsv-NdT7PmcM8AaW3Y7A_6LWOX2ciWvibVIKuacYpN'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
